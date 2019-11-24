@@ -1,6 +1,6 @@
 1.Algorithm
-  大数相乘
-  https://leetcode.com/problems/multiply-strings/submissions/
+  Add Two Numbers  数字放在链表中进行相加
+  https://leetcode.com/problems/add-two-numbers/
 
 2.review
   Why I’m Always Late
@@ -24,6 +24,6 @@
 匹配索引时跳过第一个，第二个字段在树中其实是无序的，无法定位。
 
 4.Share
-  B+树比B树更适合做索引。
+  最近看zookeeper的监听原理，其实就是观察者模式
   https://www.cnblogs.com/aspirant/p/9214485.html
   https://www.jianshu.com/p/1ed61b4cca12
