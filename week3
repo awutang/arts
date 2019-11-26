@@ -20,10 +20,13 @@
   起床，这就关系到前一天的睡眠了，应该学会打乱节奏时不要过多苛责自己，放过自己，早睡早起。
 
 3.tip
-  索引的最左匹配原则，必须匹配上第一个索引才能再匹配之后的，因为B+树是先对第一个索引字段排序，然后在第一个索引字段排序的基础上再排序第二个索引字段，如果
-匹配索引时跳过第一个，第二个字段在树中其实是无序的，无法定位。
+  springcloud中的FeignClient其实内部实现是http调用下游接口，所以无论下游是否提供了FeignClient的share包，只要是http的接口，都可以在自己的服务中用feign
+的方式实现接口调用。
 
 4.Share
-  最近看zookeeper的监听原理，其实就是观察者模式
-  https://www.cnblogs.com/aspirant/p/9214485.html
-  https://www.jianshu.com/p/1ed61b4cca12
+  最近看zookeeper的监听原理，其实就是观察者模式。
+  zk监听原理：
+    https://blog.csdn.net/wx1528159409/article/details/84633550
+  讲解了观察者模式基础知识，并扩展到jdk与spring的，带着大家看源码：
+    https://www.cnblogs.com/youzhibing/p/9593788.html
+  
