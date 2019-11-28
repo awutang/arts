@@ -25,7 +25,7 @@
   其实这里不太明白，难道是因为当前服务当前版本的springcloud不会去netflix找FeignClient，所以import有问题，导致XXXApi没找到，但是添加了子类后就可以去netflix找
 FeignClient了吗？
   其实不是，import是没问题的，是可以找到Netflix的FeignClient类,本质还是因为netflix的FeignClient注解未生效（虽然import了FeignClient），未生效是因为
-XXXApiFeign上带的注解类是org.springframework.cloud.netflix.feign.FeignClient，而当前版本的springcloud的starter-feign找的是带org.springframework.
+XXXApiFeign上带的注解类是org.springframework.cloud.netflix.feign.FeignClient，而当前版本的springcloud的spring-cloud-starter-feign找的是带org.springframework.
 cloud.openfeign.FeignClient注解的类，因此XXXApiFeign匹配不成功，不会注册到beanFactory中（赋给BeanDefinitionBuilder，然后根据BeanDefinitionBuilder
 得到beanDefinition，最后beanDefinition式注入到ioc容器），也不会生成对象到ioc容器中，因此服务启动时会报XXXApi找不到。
   点评：还是要看源码才能更明白。
