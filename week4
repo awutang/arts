@@ -1,22 +1,13 @@
 1.Algorithm
-  Add Two Numbers  数字放在链表中进行相加
-  https://leetcode.com/problems/add-two-numbers/
+  Binary Tree Inorder Traversal  二叉树中序遍历
+  https://leetcode.com/submissions/detail/283182629/
 
 2.review
-  Why Procrastinators Procrastinate
-  https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html
-    拖延不是你不想就可以不做的事情，其实真正有拖延症的人是不知道怎么去解决这个问题的，那些说不拖延就不拖延的人其实没有拖延症。
-    拖延症的大脑中其实存在一只及时行乐猴子，它不懂为啥要做一些没有乐趣的事情，为啥不能立马去享受欢乐带给自己满足呢，所以这只猴子累了就睡、饿了就吃、不做
-  任何困难的事情，但是它忘了，这是一个人的社会，它做的事情都是没有质量的，因为我们人和动物的区别就是延迟满足。
-    拖延症的人大量时间都处于黑暗地带，做大量能让你觉得快乐的事情，但这其实不是真正的快乐，因为其实你内心充满了悔恨、对自己的憎恨以及紧张与恐惧。其实我
-  自己有时候如果之前计划要做的事情但是后面由于自己的懒惰一直不去做就会内心感到很不安、自弃，其实这也是对自己内心力量的一种折磨，就像钝刀子割肉一样，让自己
-  处理不好接下来的事情。
-    当事情真的到了截止时间，慌张猴子出现了，它吓走了之前的猴子，这时候理智决策人上线，因此你会发现生活中有很多到截止日之前通宵写论文的。但是还有另一种更
-  严重的情况，慌张猴子不起作用，人们还是会做立马满足自己的事情，这其实是一种自暴自弃了，破罐子破摔，你会处于一种更加自弃的状态。
-    必须要做出改变。原因是：你在即刻满足的那种状态中其实不是真正的快乐，真正的快乐是你做了有意义的事情之后你奖励自己，这种延迟的满足才是真正的快乐；你
-  由于拖延没有达到自己的目标，你会充满内疚与悔恨；最后由于拖延，你永远最终只会做紧急不得不做的事情，比如工作任务之类的，但是真正能够丰富、提升、或者使你
-  富有，这些其实才是你真正想做的事情，但是这些事情，他们是人生中不紧急但是重要的事情，由于不紧急，慌张猴子根本不起作用，所以拖延症会让你错过这些重要的事情。
-  
+  How to Beat Procrastination
+  https://waitbutwhy.com/2013/11/how-to-beat-procrastination.html
+  如何战胜拖延症 做计划时重要的优先，不要让紧急但不重要的事情造成你重要事项拖延；让讨厌的事情变得不讨厌（分析具体的步骤）；将一个大的事项拆分出具体可执行的
+要采取行动，不要在内疚中折磨自己。三种关键方法：明白自己所做的都是自己的选择；采取实际手段，比如认为给自己设定截止时间；意识到只要有进步就行，每天进步一点点。
+
 3.tip
   当前服务的springcloud与下游服务的springcloud版本不一致，导致FeignClient所在的包路径下游（org.springframework.cloud.netflix.feign.FeignClient）
  与当前（org.springframework.cloud.openfeign.FeignClient）不一致，报错：A component required a bean of type 'XXXApi' that could not be found.
