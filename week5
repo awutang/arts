@@ -1,0 +1,30 @@
+1.Algorithm
+  Binary Tree Inorder Traversal  二叉树中序遍历
+  https://leetcode.com/submissions/detail/283182629/
+
+2.review
+  How to Beat Procrastination
+  https://waitbutwhy.com/2013/11/how-to-beat-procrastination.html
+  如何战胜拖延症 做计划时重要的优先，不要让紧急但不重要的事情造成你重要事项拖延；让讨厌的事情变得不讨厌（分析具体的步骤）；将一个大的事项拆分出具体可执行的
+要采取行动，不要在内疚中折磨自己。三种关键方法：明白自己所做的都是自己的选择；采取实际手段，比如认为给自己设定截止时间；意识到只要有进步就行，每天进步一点点。
+
+3.tip
+  当前服务的springcloud与下游服务的springcloud版本不一致，导致FeignClient所在的包路径下游（org.springframework.cloud.netflix.feign.FeignClient）
+ 与当前（org.springframework.cloud.openfeign.FeignClient）不一致，报错：A component required a bean of type 'XXXApi' that could not be found.
+ 即下游的XXX类找不到，但是对这个XXXApi类添加了一个子类(子类中import的FeignClient路径为org.springframework.cloud.openfeign.FeignClient)后就可以
+ 找到XXXApi了。
+  其实这里不太明白，难道是因为当前服务当前版本的springcloud不会去netflix找FeignClient，所以import有问题，导致XXXApi没找到，但是添加了子类后就可以去netflix找
+FeignClient了吗？
+  其实不是，import是没问题的，是可以找到Netflix的FeignClient类,本质还是因为netflix的FeignClient注解未生效（虽然import了FeignClient），未生效是因为
+XXXApi上带的注解类是org.springframework.cloud.netflix.feign.FeignClient，而当前版本的springcloud的spring-cloud-starter-openfeign找的是带org.springframework.
+cloud.openfeign.FeignClient注解的类，因此XXXApiFeign匹配不成功，不会注册到beanFactory中（赋给BeanDefinitionBuilder，然后根据BeanDefinitionBuilder
+得到beanDefinition，最后beanDefinition式注入到ioc容器），也不会生成对象到ioc容器中，因此服务启动时会报XXXApi找不到。
+  点评：还是要看源码才能更明白。
+  ps：之后同事优化了处理，将下游jar包依赖的spring-cloud-starter-feign exclusion了，那其实XXXApi.class上的import的org.springframework.cloud.netflix.
+feign.FeignClient根本就没有import成功，不会报错是因为这是个class文件，已经是编译之后的了，就不会像java文件一样如果某个import类找不到会有编译错误。
+
+4.Share
+  https://www.programcreek.com/2011/07/java-equals-and-hashcode-contract/
+  关于hashCode()与equal()的协同约定，从存储结构来理解本质，因为HashMap内部实现是哈希表，存储时用key的hashCode值去存储，如果碰撞了就放到LinkedList中（jdk1.8
+优化超过8个转换成红黑树），所以判断对象是否相等时，先查找，先用key的hashCode值一次就可已定位到具体的bucket,然后再遍历LinkedList,比较equal(),equal()相等
+则认为两个对象相等。所以如果你怼某个对象只是覆盖了equal(),由于hashCode()不相等，也是认为是两个不同的对象。
