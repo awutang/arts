@@ -1,27 +1,15 @@
 1.Algorithm
-  Binary Tree Inorder Traversal  二叉树中序遍历
-  https://leetcode.com/submissions/detail/283182629/
+  Unique Binary Search Trees II  生成二叉排序树 
+  采用了动态规划的思想
+  https://leetcode.com/problems/unique-binary-search-trees-ii/submissions/
 
 2.review
-  How to Beat Procrastination
-  https://waitbutwhy.com/2013/11/how-to-beat-procrastination.html
-  如何战胜拖延症 做计划时重要的优先，不要让紧急但不重要的事情造成你重要事项拖延；让讨厌的事情变得不讨厌（分析具体的步骤）；将一个大的事项拆分出具体可执行的
-要采取行动，不要在内疚中折磨自己。三种关键方法：明白自己所做的都是自己的选择；采取实际手段，比如认为给自己设定截止时间；意识到只要有进步就行，每天进步一点点。
+  https://onezero.medium.com/delete-your-slack-messages-right-now-heres-how-81ac428748
+  不要在公司内部沟通软件上讨论公司不好的方面，因为信息可能某天就公开了，对自己会有不好的影响；不过从另一方面信息的公开对公司也不是好消息。
 
 3.tip
-  当前服务的springcloud与下游服务的springcloud版本不一致，导致FeignClient所在的包路径下游（org.springframework.cloud.netflix.feign.FeignClient）
- 与当前（org.springframework.cloud.openfeign.FeignClient）不一致，报错：A component required a bean of type 'XXXApi' that could not be found.
- 即下游的XXX类找不到，但是对这个XXXApi类添加了一个子类(子类中import的FeignClient路径为org.springframework.cloud.openfeign.FeignClient)后就可以
- 找到XXXApi了。
-  其实这里不太明白，难道是因为当前服务当前版本的springcloud不会去netflix找FeignClient，所以import有问题，导致XXXApi没找到，但是添加了子类后就可以去netflix找
-FeignClient了吗？
-  其实不是，import是没问题的，是可以找到Netflix的FeignClient类,本质还是因为netflix的FeignClient注解未生效（虽然import了FeignClient），未生效是因为
-XXXApi上带的注解类是org.springframework.cloud.netflix.feign.FeignClient，而当前版本的springcloud的spring-cloud-starter-openfeign找的是带org.springframework.
-cloud.openfeign.FeignClient注解的类，因此XXXApiFeign匹配不成功，不会注册到beanFactory中（赋给BeanDefinitionBuilder，然后根据BeanDefinitionBuilder
-得到beanDefinition，最后beanDefinition式注入到ioc容器），也不会生成对象到ioc容器中，因此服务启动时会报XXXApi找不到。
-  点评：还是要看源码才能更明白。
-  ps：之后同事优化了处理，将下游jar包依赖的spring-cloud-starter-feign exclusion了，那其实XXXApi.class上的import的org.springframework.cloud.netflix.
-feign.FeignClient根本就没有import成功，不会报错是因为这是个class文件，已经是编译之后的了，就不会像java文件一样如果某个import类找不到会有编译错误。
+  https://juejin.im/post/5c25983ee51d4558bf3970fe
+  java不支持创建泛型数组，因为数组在运行期要检查类型，如果用泛型，由于泛型在运气期间是类型擦除的，这就破坏了数组本来就有的运行期类型检查了。
 
 4.Share
   https://www.programcreek.com/2011/07/java-equals-and-hashcode-contract/
