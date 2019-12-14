@@ -1,0 +1,21 @@
+1.Algorithm
+  Unique Binary Search Trees II  生成二叉排序树 
+  采用了动态规划的思想
+  https://leetcode.com/problems/unique-binary-search-trees-ii/submissions/
+
+2.review
+  https://onezero.medium.com/delete-your-slack-messages-right-now-heres-how-81ac428748
+  不要在公司内部沟通软件上讨论公司不好的方面，因为信息可能某天就公开了，对自己会有不好的影响；不过从另一方面信息的公开对公司也不是好消息。
+
+3.tip
+  https://juejin.im/post/5c25983ee51d4558bf3970fe
+  java不支持创建泛型数组，因为数组在运行期要检查类型，如果用泛型，由于泛型在运气期间是类型擦除的，这就破坏了数组本来就有的运行期类型检查了。
+
+4.Share
+  https://www.programcreek.com/2011/07/java-equals-and-hashcode-contract/
+  问题引入:当向HashMap中存放key与value时，如何确定当前插入的key与之前的重复了？
+  因为现在是想将数据放入hashMap中，我们从存储结构进行分析（涉及到hashCode()与equal()的协同约定）因为HashMap内部实现是哈希表（array和linkedList），
+存储时用key的hashCode值作为索引去存储到array中，如果碰撞了就放到LinkedList中（jdk1.8优化超过8个转换成红黑树），所以判断key即对象是否相等时，先查找，
+先用key的hashCode值一次就可以定位到具体的bucket（O(1)）,然后再遍历LinkedList,比较equal(),equal()相等则认为两个key相等。所以如果你对某个对象只是
+覆盖了equal(),由于hashCode()不相等，也是认为是两个不同的对象即不同的key。
+  从存储结构即本质进行分析就很透彻了。ps:哈希表的好处是提高存储查找效率，O(1)就可以定位到具体的bucket。
