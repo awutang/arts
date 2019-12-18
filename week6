@@ -1,11 +1,12 @@
 1.Algorithm
-  Unique Binary Search Trees II  生成二叉排序树 
+  Unique Binary Search Trees  二叉排序树的数目
   采用了动态规划的思想
-  https://leetcode.com/problems/unique-binary-search-trees-ii/submissions/
+  https://leetcode.com/problems/unique-binary-search-trees/submissions/
 
 2.review
-  https://onezero.medium.com/delete-your-slack-messages-right-now-heres-how-81ac428748
-  不要在公司内部沟通软件上讨论公司不好的方面，因为信息可能某天就公开了，对自己会有不好的影响；不过从另一方面信息的公开对公司也不是好消息。
+  This Morning Routine will Save You 20+ Hours Per Week
+  1.当你不去工作而用于做其他事时，你会想到关于工作的有创造性的想法。所以工作的时候投入工作，不工作时就好好休息。
+  2.早上的三个小时适合做需要思考、复杂的事情。my opinion:早上效率高
 
 3.tip
   统计日志中哪些类的日志打印了，适用于统计合作方调用接口的场景（如果合作方没有调用业务类，则说明合作方已经不调用接口了）
