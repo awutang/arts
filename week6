@@ -18,10 +18,7 @@
   cat xxx.log | awk  '{print $5}' | sort |uniq。
 
 4.Share
-  https://www.programcreek.com/2011/07/java-equals-and-hashcode-contract/
-  问题引入:当向HashMap中存放key与value时，如何确定当前插入的key与之前的重复了？
-  因为现在是想将数据放入hashMap中，我们从存储结构进行分析（涉及到hashCode()与equal()的协同约定）因为HashMap内部实现是哈希表（array和linkedList），
-存储时用key的hashCode值作为索引去存储到array中，如果碰撞了就放到LinkedList中（jdk1.8优化超过8个转换成红黑树），所以判断key即对象是否相等时，先查找，
-先用key的hashCode值一次就可以定位到具体的bucket（O(1)）,然后再遍历LinkedList,比较equal(),equal()相等则认为两个key相等。所以如果你对某个对象只是
-覆盖了equal(),由于hashCode()不相等，也是认为是两个不同的对象即不同的key。
-  从存储结构即本质进行分析就很透彻了。ps:哈希表的好处是提高存储查找效率，O(1)就可以定位到具体的bucket。
+  https://segmentfault.com/a/1190000011291179
+  1.jdk动态代理,目标对象需要实现接口；代理类实现InvocationHandler接口；
+  2.cglib代理，目标对象不需要实现接口；但是cglib的代理类会extends目标对象，重写方法。所以目标对象不能是final的
+  
