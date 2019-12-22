@@ -1,7 +1,7 @@
 1.Algorithm
-  Unique Binary Search Trees  二叉排序树的数目
-  采用了动态规划的思想
-  https://leetcode.com/problems/unique-binary-search-trees/submissions/
+  hValidate Binary Search Tree  判断是否为二叉排序树（不能有重复值）
+  采用了递归思想，不过利用了一个最小最大值。
+  https://leetcode.com/problems/validate-binary-search-tree/submissions/
 
 2.review
   This Morning Routine will Save You 20+ Hours Per Week
@@ -13,11 +13,18 @@
   6.重复听歌
 
 3.tip
-  统计日志中哪些类的日志打印了，适用于统计合作方调用接口的场景（如果合作方没有调用业务类，则说明合作方已经不调用接口了）
-  每行按空格或TAB分割，输出日志文件中的5项（从1开始计），并排序，分组统计唯一
-  cat xxx.log | awk  '{print $5}' | sort |uniq。
+  traceId在不同服务之间如何传播？（应用场景：对一个请求在调用链的各个服务中能更好的定位日志）
+  可以在rpc时将A服务的traceId放在header中给B服务，B服务的拦截器中会校验如果有traceId就不载重新生成，而直接使用A服务的。
+  https://blog.csdn.net/yangcheng33/article/details/80796129
+  这篇讲了traceId如何跨线程池及跨服务追踪的。
 
 4.Share
-  https://segmentfault.com/a/1190000011291179
-  1.jdk动态代理,目标对象需要实现接口；代理类实现InvocationHandler接口；
-  2.cglib代理，目标对象不需要实现接口；但是cglib的代理类会extends目标对象，重写方法。所以目标对象不能是final的
+  https://juejin.im/post/5a8eb261f265da4e9e307230
+  https://www.cnblogs.com/youzhibing/p/9593788.html
+  https://www.iteye.com/blog/jinnianshilongnian-1902886
+  spring中观察者模式（又叫发布订阅模式）使用：
+   1.首先在spring服务启动时将listener（实现了ApplicatoinListener的）注册到ApplicationEventMulticaster 维护的 Listener 集合中,在refresh方法中有这一步骤。
+   2.在test中发布事件时，会去遍历之前注册的listener,执行listener的事件方法。
+   3.ApplicationListener是订阅者（观察者MessageListener)；ApplicationEventPublisher及ApplicationEventMulticaster是发布者(ApplicationEventPublisher
+   委托给ApplicationEventMulticaster执行事件，ApplicationEventMulticaster会获取到服务启动时注册的Applicationlistener去执行真正的事件）(例子中的MessageService也可以认为是发布者）
+ ，最终是调用到ApplicationContext中；ApplicationEvent（MessageEvent)是事件。
