@@ -1,0 +1,44 @@
+1.Algorithm
+  hValidate Binary Search Tree  判断是否为二叉排序树（不能有重复值）
+  采用了递归思想，不过利用了一个最小最大值。
+  https://leetcode.com/problems/validate-binary-search-tree/submissions/
+
+2.review
+  https://waitbutwhy.com/2014/05/life-weeks.html
+  1.这篇文章提出了一个有趣的观点，以一周为单位，人的一生就可以在纸上描绘出来了。
+  2.把每一周当做一颗钻石，一生就是一勺子钻石。
+  3.为了充分利用每一周，要么当前这个钻石能让你快乐，要么当前的不快乐是为了以后的钻石更好，人要在两者之间做一个平衡，
+但是如果你为了当前的快乐而损坏以后的钻石，这也是不行的。
+  4.更糟糕的某种情况是3中的两点都不满足，这时你会觉得沮丧、人生没意义等，为了避免此种情况，人需要经常进行反思与自我认识。
+  5.可以通过人生日历让自己进行反思，并且这也会让自己对人生更有掌控感。
+  6.空箱子代表的每一周对所有人都是公平的，关键看你自己选择如何填满它，任何你崇拜的人也是填满的同样的箱子。
+  7.人生也是宽容的，无论这一周发生了什么，崭新的下一周仍会来到。
+  把每一周当做一颗钻石，一生就是一勺子钻石，要让自己的人生钻石熠熠生辉就要过好每一周，看要不要自己买个人生日历。
+
+3.tip
+  MDC Mapped Diagnostic Contexts 存储追踪定位日志的
+  在线程与线程池之间使用到MDC时，由于本身MDC中的内容就是对应着线程存储在某个map中的，因此如果某个线程使用之后没有注销又被另一个任务使用，则旧的MDC
+内容还在，这时脏数据，因此应该在莫修个任务执行完后就应该MDC.clear().
+  其实用到线程池的都会有脏数据的问题，需要及时清理哦。
+
+4.Share
+  https://www.jianshu.com/p/1dea7479eb07
+  https://blog.csdn.net/a837199685/article/details/52712547
+  https://blog.csdn.net/xxcupid/article/details/51955800
+  https://blog.csdn.net/yangcheng33/article/details/80796129
+  https://ketao1989.github.io/2015/04/29/LogBack-Implemention-And-Slf4j-Mdc/
+  1.MDC老版本用的是inheritableThreadLocal，他是如何实现父子线程传递内容的呢？
+    1.1 比如在主线程中MDC.put(a,b) 内部实现是首先根据线程得到inheritableThreadLocals（ThreadLocalMap）;其次根据
+  inheritableThreadLocal（InheritableThreadLocal）得到Entry对象；最后得到这个Entry对象的value(这个value就是用于存储a,b的hashMap);
+  之后将a,b存到这个value中，总之是操作了inheritableThreadLocals
+	  1.2 主线程中异步调用另一个线程t，初始化t时从主线程中获取inheritableThreadLocals并设置到子线程的inheritableThreadLocals中，
+  主线程的inheritableThreadLocals中如上所述保存着a,b,因此子线程的inheritableThreadLocals也保存着a,b，并且如下所示inheritableThreadLocals中
+  的key即inheritableThreadLocal对象也是同一个，value也是同一个对象.
+    1.3 MDC中深拷贝与浅拷贝的问题 将父线程的inheritableThreadLocals给子线程时，用InheritableThreadLocal类时浅拷贝，value是同一个hashMap对象，如果
+   子线程修改了这个map,父线程的也会受到影响；因此用CopyOnInheritableThreadLocal,hashMap是新创建并且值是复制的，这样父子线程不会相互影响。
+  2.MDC之后为了性能问题取消使用InheritableThreadLocal，最后还是使用的是ThreadLocal来作为底层实现，因此父子线程之间无法传递内容了
+    2.1 用户自己封装对MDC的使用，在父线程新建子线程之前调用MDC.getCopyOfContextMap()方法将MDC内容取出来存着，子线程在执行操作前先调用
+  MDC.setContextMap()方法将存着的父线程的MDC内容设置到子线程。
+    2.2 变量传递有四种：线程内部、线程与异步线程、线程与线程池、服务与服务之间，其中二三都能通过上述的自定义封装方式实现变量传递。
+
+
