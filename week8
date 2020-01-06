@@ -1,7 +1,7 @@
 1.Algorithm
-  hValidate Binary Search Tree  判断是否为二叉排序树（不能有重复值）
-  采用了递归思想，不过利用了一个最小最大值。
-  https://leetcode.com/problems/validate-binary-search-tree/submissions/
+  Binary Tree Level Order Traversal  按层遍历
+  采用了广度优先搜索的思想，用队列 每轮循环后队列中留下的是一层的节点
+  https://leetcode.com/submissions/detail/291671269/
 
 2.review
   https://medium.com/swlh/if-you-want-to-be-rich-stop-focusing-on-your-salary-do-this-instead-b7fcb0afc485
