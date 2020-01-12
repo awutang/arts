@@ -1,0 +1,21 @@
+1.Algorithm
+  Binary Tree Level Order Traversal  按层遍历
+  采用了广度优先搜索的思想，用队列 每轮循环后队列中留下的是一层的节点
+  https://leetcode.com/submissions/detail/291671269/
+
+2.review
+  https://docs.oracle.com/javase/8/docs/technotes/tools/unix/s11-troubleshooting_tools.html#sthref327
+  java中遇到内存、线程等各种问题时可以用于定位问题的各种jvm性能调优命令
+
+3.tip
+  tips1:在涉及到异步调用时，无论是用多线程还是单个线程，记得给线程命名，这对之后排查问题定位具体代码行数很方便。
+  tip2:应用启动打印日志时，如果没有打印日志，可以通过jvisualvm把堆栈打印出来看。 就能看出日志卡住那地方是在做什么
+  
+
+4.Share
+  https://www.cnblogs.com/ITtangtang/p/7608801.html
+  线程池的工作原理：提交任务，
+    1.判断核心线程池是否已满，未满则创建线程执行任务，核心线程数加1，已满则进入第2步
+    2.队列是否已满，未满则加入队列等待分配线程，已满则进入第3步
+    3.线程池是否已满即是否到达最大线程数，未满则创建线程执行任务，已满则进入第4步
+    4.按照拒绝策略处理无法执行的任务
