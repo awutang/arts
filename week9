@@ -5,7 +5,17 @@
 
 2.review
   https://docs.oracle.com/javase/8/docs/technotes/tools/unix/s11-troubleshooting_tools.html#sthref327
-  java中遇到内存、线程等各种问题时可以用于定位问题的各种jvm性能调优命令
+  java中遇到内存、线程等各种问题时可以用于定位问题的各种jdk命令行工具
+  jcmd: Sends diagnostic command requests to a running JVM. 发送诊断命令，如果不加任何参数则于jps结果一样，如果加pid参数则可打印某一进程可执行的命令
+，可以根据查到的命令进行查询
+  jinfo: Experimental. Generates configuration information. 打印某一进程配置信息，补全jps输出
+  jmap: Experimental. Prints shared object memory maps or heap memory details for a process, core file, or remote debug server.
+  jhat: Experimental. Analyzes the Java heap.
+  jmap与jhat配合使用，jmap打印某一进程的堆内存快照等信息，jhat用于分析
+  jstack: Experimental. Prints Java thread stack traces for a Java process, core file, or remote debug server. 打印某一进程的线程的栈信息
+  jsadebugd: Experimental. Attaches to a Java process or core file and acts as a debug server. 用于在远程机器上执行，然后本地可用jinfo/jmap/jstack
+监控远程某一进程。
+  
 
 3.tip
   tips1:在涉及到异步调用时，无论是用多线程还是单个线程，记得给线程命名，这对之后排查问题定位具体代码行数很方便。
