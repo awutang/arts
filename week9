@@ -1,7 +1,7 @@
 1.Algorithm
-  Binary Tree Level Order Traversal  按层遍历
-  采用了广度优先搜索的思想，用队列 每轮循环后队列中留下的是一层的节点
-  https://leetcode.com/submissions/detail/291671269/
+  Binary Tree Zigzag Level Order Traversal  锯齿形按层遍历
+  采用了广度优先搜索的思想，用队列 每轮循环后队列中留下的是一层的节点，添加了一个参数，用于判定遍历方向
+  https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/submissions/
 
 2.review
   https://docs.oracle.com/javase/8/docs/technotes/tools/unix/s11-troubleshooting_tools.html#sthref327
