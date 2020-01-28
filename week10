@@ -1,24 +1,26 @@
 1.Algorithm
-  Binary Tree Zigzag Level Order Traversal  锯齿形按层遍历
-  采用了广度优先搜索的思想，用队列 每轮循环后队列中留下的是一层的节点，添加了一个参数，用于判定遍历方向
-  https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/submissions/
+  Construct Binary Tree from Preorder and Inorder Traversal 根据先序及中序遍历结果得到二叉树
+  recursive 递归写法实现不易
+  https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/submissions/
 
 2.review
   https://onezero.medium.com/i-know-the-salaries-of-thousands-of-tech-employees-4841bc26d753
     这篇讲述了待遇透明度的重要性，例如可以使得由于性别导致的待遇不平等现象减少，可以让自己在面试谈薪酬时更有底气。人们将待遇视作隐私不想去谈论，很大原因
   是怕被开除，但是只有让待遇更透明，你才能更知道自己的价值，才能让自己得到的待遇更公平。
   
-  
-
 3.tip
-  tips1:在涉及到异步调用时，无论是用多线程还是单个线程，记得给线程命名，这对之后排查问题定位具体代码行数很方便。
-  tip2:应用启动打印日志时，如果没有打印日志，可以通过jvisualvm把堆栈打印出来看。 就能看出日志卡住那地方是在做什么
-  
+  tips1:Java中可以通过System.getEnv()获取环境变量；System.getProperties()获取系统属性（系统的相关属性,包括文件编码,操作系统名称,区域,用户名等）
+  环境变量：指的是当前机器操作系统环境变量，包括用户环境变量和系统环境变量，对于windows是将系统属性-->高级-->环境变量中设置的变量显示在此(对于linux是将通过export设置的变量显示在此)
+  ）；系统属性指的是jvm的环境变量，比如在idea中设置的-DPROJECT_ID=public
 
 4.Share
-  https://www.cnblogs.com/ITtangtang/p/7608801.html
-  线程池的工作原理：提交任务，
-    1.判断核心线程池是否已满，未满则创建线程执行任务，核心线程数加1，已满则进入第2步
-    2.队列是否已满，未满则加入队列等待分配线程，已满则进入第3步
-    3.线程池是否已满即是否到达最大线程数，未满则创建线程执行任务，已满则进入第4步
-    4.按照拒绝策略处理无法执行的任务
+  https://juejin.im/entry/59b740fdf265da06633d02cf
+  https://www.jianshu.com/p/2581342317ce
+  关于零拷贝，涉及到：
+    1.用户态与内核态的切换，
+    2.cpu copy 与 dma(direct memory access):硬件与软件的交互，不涉及cpu
+   read()、write() -->mmap()、write()--》sendFile()   减少一次cpu copy ,两次上下文切换 sendFile()是Linux的函数。
+   
+   
+
+  
