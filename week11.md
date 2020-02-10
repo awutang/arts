@@ -9,7 +9,6 @@
   2. 更进一步，可以从三个角色分别去问自己这三个问题，从自己，团队，用户去理解，可以更进一步搞清楚事情的意图与背景。
   
 #### tip
-  tips：
   - sql注入一般是因为将输出串拼接到sql中导致sql逻辑发生变化，这一过程发生在编译阶段。用PreparedStatement可以解决问题，因为PreparedStatement在编译阶段编译的是带有占位符的sql语句，运行阶段才将输入串作为参数放入sql语句中，因此不会造成sql逻辑的变化。
   - https://blog.csdn.net/ls5718/article/details/52123140
   
